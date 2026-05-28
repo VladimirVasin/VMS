@@ -22,6 +22,8 @@ Purpose: shared context for AI-assisted work on the AvidSys/VMS project.
   Human-readable end-to-end process summary inferred from Azure DevOps feature `24497 Programs&Enrollment`.
 - `azure-feature-24497-programs-enrollment.md`
   Captured Azure DevOps child user story list and descriptions for feature `24497`.
+- `vendor-ssp-figma-design-context-2026-05-28.md`
+  Detailed text-only context capture of the Vendor SSP Figma design, including portal IA, public enrollment flow, authenticated vendor/candidate areas, components, role access, and backlog mapping.
 
 ## Current Coverage
 
@@ -34,6 +36,7 @@ Purpose: shared context for AI-assisted work on the AvidSys/VMS project.
 - Program Enrollment Application submission.
 - Enrollment creation and requirement assignment generation.
 - Requirement assignment status feedback into application/enrollment state.
+- Vendor SSP Figma design context for public enrollment, authenticated vendor portal, candidate portal, role-gated navigation/actions, and operational portal pages.
 - Program Certificate verify/reject actions.
 - Enrollment payment term discount population.
 - DocuSign contract signature flow.
