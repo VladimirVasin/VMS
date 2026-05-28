@@ -4,6 +4,12 @@ Purpose: shared context for AI-assisted work on the AvidSys/VMS project.
 
 ## Files
 
+- `final-project-overview-2026-05-28.md`
+  Final synthesized project overview comparing Azure DevOps Wiki process documentation with captured work items.
+- `azure-wiki-vms-full-context-2026-05-28.md`
+  Full readable capture of all 8 visible `VMS.wiki` pages.
+- `azure-wiki-vms-pages-2026-05-28.json`
+  Machine-readable structured Wiki capture.
 - `project-context-overview.md`
   High-level map of the VMS project areas inferred from the 2026-05-28 Azure DevOps work item and Feature child-list crawl.
 - `azure-work-items-index-2026-05-28.md`
@@ -19,6 +25,7 @@ Purpose: shared context for AI-assisted work on the AvidSys/VMS project.
 
 ## Current Coverage
 
+- Azure DevOps `VMS.wiki` crawl as exposed on 2026-05-28: 8 visible pages, 7 with content and one empty `Vendor Portal` page.
 - Azure DevOps `Recently updated` hub crawl plus all visible Feature child lists as exposed on 2026-05-28: 181 work items.
 - Main project areas: Requisition Management, Job Application Management, Engagement Management, Interview Scheduling, Financials, Procurement, Programs&Enrollment, System Security/General Administration, Performance Review, Client & Contract Management.
 - Vendor Registration Request approval/decline.

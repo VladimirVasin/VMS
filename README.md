@@ -4,6 +4,7 @@ This repository stores shared implementation context for the AvidSys/VMS project
 
 Current captured scope:
 
+- Azure DevOps Wiki `VMS.wiki` crawl captured on 2026-05-28
 - Azure DevOps `Recently updated` plus Feature child-list crawl captured on 2026-05-28
 - 181 work items: 10 Features, 170 User Stories, 1 Task
 - Azure DevOps feature `24497 Programs&Enrollment`
@@ -13,7 +14,9 @@ Current captured scope:
 Start here:
 
 - `ai/README.md`
+- `ai/final-project-overview-2026-05-28.md`
 - `ai/project-context-overview.md`
+- `ai/azure-wiki-vms-full-context-2026-05-28.md`
 - `ai/azure-work-items-index-2026-05-28.md`
 - `ai/programs-enrollment-process-overview.md`
 - `ai/azure-feature-24497-programs-enrollment.md`

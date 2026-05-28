@@ -1,0 +1,79 @@
+{
+  "captured": "2026-05-28",
+  "source": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/261/VMS-(MSP)-Solution-Overview",
+  "scopeNote": "Captured all 8 pages visible in the VMS.wiki tree from the Azure DevOps Wiki UI. The Vendor Portal page was visible but had no content body at capture time.",
+  "pages": [
+    {
+      "title": "VMS (MSP) Solution Overview",
+      "level": 1,
+      "url": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/261/VMS-(MSP)-Solution-Overview",
+      "pageTitle": "VMS (MSP) Solution Overview - Overview",
+      "content": "This solution supports management of Vendors, Programs, Candidates, and Enrollments across multiple Clients and Agencies.\n\nCore Concepts\nA Client represents an organization (e.g., government entity)\nA Client can have multiple Agencies\nPrograms are defined under a Client and represent initiatives Vendors can enroll into\nVendors participate in Programs through Enrollments\nContacts (Candidates/Resources) can be associated with Vendors and participate in Engagements\nKey Relationships\nClient -> Agency (1:N)\nClient -> Program (1:N)\nVendor -> Enrollment (1:N)\nProgram -> Enrollment (1:N)\nVendor -> Vendor Contact (1:N)\nVendor -> Candidate/Resource (1:N)\nContact (Candidate/Resource) -> Worker Profile -> Engagement",
+      "contentChars": 705,
+      "empty": false
+    },
+    {
+      "title": "Vendor Portal",
+      "level": 1,
+      "url": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/274/Vendor-Portal",
+      "pageTitle": "Vendor Portal - Overview",
+      "content": "",
+      "contentChars": 0,
+      "empty": true
+    },
+    {
+      "title": "Vendor Registration & Enrollment Process",
+      "level": 1,
+      "url": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/262/Vendor-Registration-Enrollment-Process",
+      "pageTitle": "Vendor Registration & Enrollment Process - Overview",
+      "content": "1. Entry Points\n\nA Vendor can enter the system in two ways:\n\nOption A: Direct Registration\nVendor submits Vendor Registration Request\nLater applies to Programs\nOption B: Registration via Program Application\nVendor selects a Program in the portal\nSubmits registration as part of application\nSystem stores Program selection temporarily\nProgram Enrollment Application is NOT created yet\n2. Vendor Registration Request\n\nVendor submits:\n\nVendor details\nPrimary Contact\nOptional Program selection\n\nRecord created:\n\nVendor Registration Request\nStatus = Pending Review\n3. Review and Decision\nApprove\n\nTriggers:\n\nVendor creation\nPrimary Contact creation\nB2C account creation\nDecline\nStatus = Declined\nReason + Comments required\n4. Post-Approval Processing\n\nOn approval:\n\nCreate Vendor\nCreate Primary Contact\nLink Contact to Vendor\n\nIf Program was selected:\n\nCreate Program Enrollment Application (Draft)\nUse the Program selection captured during registration\n5. Program Enrollment Application\n\nApplication lifecycle:\n\nDraft\nSubmitted\nUnder Review\nApproved\nRejected\n6. Enrollment Application Questions\n\nQuestions are defined at the Program level and represent the questionnaire Vendors must complete during application.\nExamples:\n\nBusiness qualifications\nCompliance declarations\nProgram-specific requirements\n7. Enrollment Application Question Responses\n\nWhen a Program Enrollment Application is created:\n\nCreate Enrollment Application Question Response records\nOne record per question defined on the Program\nEach Response record:\nLinked to Program Enrollment Application\nContains:\nQuestion (copied as text)\nResponse (answer provided by Vendor)\nImportant Design Note\nThere is no lookup/reference to the original Question record\nQuestion text is copied at the time of creation\nEnsures historical consistency even if Program questions change later\n8. Enrollment Requirements & Assignments\n\nRequirements are defined at Program level.\n\nAssignment Creation\nEnrollment Requirement Assignments are created prior to Application approval\nCreated when:\nApplication is submitted\n\nEach assignment:\n\nLinks Enrollment Requirement Assignment to the Program Enrollment Application\nTracks completion status (e.g., Assigned, Verifying, Approved, Rejected)\n9. Application Submission -> Enrollment Creation\n\nWhen Application is Submitted:\n\nCreate Enrollment with:\nStatus = Pending Activation\nVendor\nProgram\nLink Enrollment Requirement Assignments to the Enrollment\n10. Application Review\n\nInternal users review Application:\n\nValidate requirements completion\nApprove or reject Application\n11. Enrollment Activation\n\nOnce Application is approved:\n\nEnrollment transitions from:\nPending Activation -> Active\n12. Enrollment Lifecycle\nPending Activation\nActive\nExpired (auto when End Date reached)\nTerminated (manual)\nTermination\n\nRequires:\n\nTermination Reason",
+      "contentChars": 2822,
+      "empty": false
+    },
+    {
+      "title": "Position-to-Engagement Process",
+      "level": 1,
+      "url": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/266/Position-to-Engagement-Process",
+      "pageTitle": "Position-to-Engagement Process - Overview",
+      "content": "Overview\n\nThe process models how work demand (Job Positions) is created under a Program and fulfilled through Engagements (actual worker assignments).\nAt a high level:\n\nProgram defines the initiative\nJob Position defines the demand (role/requisition)\nEngagement represents the fulfillment (worker assigned)\nProcess Flow\n1. Program Setup\nProgram is created under a Client\nDefines timeframe and scope\n2. Job Position Creation (Requisition)\nJob Position is created under:\nProgram\nAgency\nRepresents a role to be filled (e.g., Analyst, Developer)\n3. Engagement Creation (Fulfillment)\nWhen a worker is selected:\nAn Engagement is created\nEngagement links:\nJob Position\nVendor\nWorker Profile\nAgency\n4. Worker Assignment\nEach Engagement has exactly one Worker Profile\nWorker Profile represents the individual performing the work\n5. Lifecycle of Engagements\n\nA Job Position can have:\n\nOne or more Engagements over time, for example:\nInitial hire\nReplacement (backfill)\nReassignment\nThis means:\nEngagements are not strictly 1:1 with Job Position\nThey are time-based and sequential (or potentially parallel)",
+      "contentChars": 1095,
+      "empty": false
+    },
+    {
+      "title": "Interview Scheduling Module",
+      "level": 1,
+      "url": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/244/Interview-Scheduling-Module",
+      "pageTitle": "Interview Scheduling Module - Overview",
+      "content": "The Interview Scheduling Module allows the HR team to schedule interviews with candidates based on interviewer availability configured in the system. The system automatically determines mutually available time slots across selected interviewers and presents those slots to the scheduler. The selected slot is then sent to the candidate through the Candidate Portal as an invitation.\n\nCandidates can accept the proposed time or reject it and propose an alternative. Interviews can also be rescheduled from the Model Driven App when necessary. The module ensures interviews are scheduled using interviewer availability rules, avoids scheduling conflicts, and maintains a complete history of scheduling changes.",
+      "contentChars": 708,
+      "empty": false
+    },
+    {
+      "title": "Background Checks & Trainings Process",
+      "level": 1,
+      "url": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/103/Background-Checks-Trainings-Process",
+      "pageTitle": "Background Checks & Trainings Process - Overview",
+      "content": "Background Checks (BC) and Trainings (T) are defined once and reused across Agencies and Engagements; when a person completes a Requirement for one Engagement, matching Requirements on other Engagements move to Verifying and shared evidence is copied so each Agency can review and approve independently. This document explains the creation flow, data relationships, automated status transitions and expected behaviors.",
+      "contentChars": 418,
+      "empty": false
+    },
+    {
+      "title": "Timesheet Approval Process",
+      "level": 1,
+      "url": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/270/Timesheet-Approval-Process",
+      "pageTitle": "Timesheet Approval Process - Overview",
+      "content": "Overview\n\nThe Timesheet Approval process ensures that submitted Timesheets are reviewed and approved by the appropriate stakeholders based on the related Engagement configuration.\nThe process supports:\n\nSingle-level approval (Engagement Approver only)\nMulti-level approval (Engagement Approver -> Program Manager)\nKey Entities\nTimesheet - record submitted by a Resource for work performed\nEngagement - defines assignment and approval configuration\nProgram - used to identify Program Manager for final approval\nConfiguration\nOn Engagement\nApprover - user responsible for Level 1 approval\nMulti-level Approval Required (Yes/No)\nOn Program\nProgram Manager - user responsible for Level 2 approval\nProcess Flow\n1. Timesheet Submission\nResource submits Timesheet\nStatus = Submitted\n2. Level 1 Approval (Engagement Approver)\nTimesheet is routed to Engagement Approver\nAppears in view:\nTimesheets To Approve\nAvailable Actions\nApprove\nReject\n3. Approval Logic\nIf Multi-level Approval = No\nOn Approve:\nStatus -> Approved\nProcess completes\nIf Multi-level Approval = Yes\nOn Approve:\nStatus -> Pending Program Approval\nTimesheet is routed to Program Manager\n4. Level 2 Approval (Program Manager)\nApplies only when Status = Pending Program Approval\nAppears in view:\nTimesheets Pending Final Approval\nAvailable Actions\nApprove\nReject\n5. Final Outcome\nApprove\nStatus -> Approved\nReject\nStatus -> Rejected\nManual Override\n\nAuthorized users (e.g., Program Manager, Client Approver, System Administrator) can override decisions:\n\nAvailable when Status is:\n\nApproved\nRejected\nPending Program Approval\n\nStatus -> Manual Override\n\nStatus Model\nDraft\nSubmitted\nPending Program Approval\nApproved\nRejected\nManual Override\nViews\nTimesheets To Approve\nStatus = Submitted\nEngagement Approver = current user\nTimesheets Pending Final Approval\nStatus = Pending Program Approval\nProgram Manager = current user\nNotifications\nWeekly Reminder (Monday)\n\nAutomated notifications are sent:\n\nTo Engagement Approvers:\nList of Timesheets with Status = Submitted\nTo Program Managers:\nList of Timesheets with Status = Pending Program Approval\nEach notification includes:\nEngagement\nResource\nTimesheet period\nAudit & Tracking\n\nEach approval action captures:\n\nReviewed By (User)\nReviewed On (Date/Time)\nRejection / Override Reason (if applicable)\nKey Business Rules\nOnly Engagement Approver can approve/reject at Level 1\nOnly Program Manager can approve/reject at Level 2\nMulti-level approval must be respected when enabled\nTimesheets cannot skip approval levels\nAll actions must be auditable\nSummary Flow\nTimesheet submitted\nEngagement Approver reviews\nIf multi-level:\nRouted to Program Manager\nFinal approval or rejection\nOptional manual override",
+      "contentChars": 2697,
+      "empty": false
+    },
+    {
+      "title": "Engagement Offboarding Process",
+      "level": 1,
+      "url": "https://dev.azure.com/AvidSys/VMS/_wiki/wikis/VMS.wiki/271/Engagement-Offboarding-Process",
+      "pageTitle": "Engagement Offboarding Process - Overview",
+      "content": "Overview\n\nOffboarding ensures controlled and compliant disengagement of a Resource from an Engagement, including:\n\nWork cessation\nAccess removal\nAsset return (equipment, badges)\nSLA adherence\nExit feedback collection\nTracking of removal reasons\nThe process is configurable per Client and fully auditable.\nProcess Flow\n1. Offboarding Initiation\n\nOffboarding is triggered when:\n\nEngagement reaches end date\nResource is terminated early\nResource is deemed unqualified\nClient directs removal or re-assignment\n\nSystem actions:\n\nCreate Offboarding record\n\nCapture:\n\nResource\nEngagement\n\nSet Status = Not Started\n\n2. Task Assignment Generation\n\nSystem retrieves Offboarding Tasks configured for the Client and creates:\n\nOffboarding Task Assignments (one per task)\n\nEach assignment includes:\n\nDue Date (based on SLA Days)\nAssigned To (Contact or User)\nStatus = Assigned\n3. Offboarding Execution\n\nAssigned users complete required tasks, such as:\n\nWork cessation\nAccess removal\nEquipment return\nBadge return\n4. SLA Enforcement\n\nEach task is tracked against SLA. For example:\n\nOnsite returns:\nMust be completed by end of workday (SLA Days = 0)\nOffsite returns:\nMust be completed within defined SLA (default 7 business days)\n\nIf:\n\nCurrent Date > Due Date AND Status != Completed -> mark as Overdue\n5. Asset Compliance\n\nIf assets are not returned:\n\nTask remains incomplete or overdue\nReplacement cost responsibility applies\nFlag for reporting and follow-up\n6. Exit Feedback\nResource submits Exit Feedback\nStored on Offboarding record\nRetained for audit\n7. Offboarding Completion\n\nOffboarding is completed when:\n\nAll required tasks are completed\nSystem updates:\nStatus -> Completed\nCompleted On date populated",
+      "contentChars": 1692,
+      "empty": false
+    }
+  ]
+}
